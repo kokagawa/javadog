@@ -25,13 +25,14 @@ void printinfo() {
 	 System.out.println("最大体力：" + this.maxEnergy);
 	 System.out.println("体力：" + this.energy);
 }
+void move() {}
 }
 
 class VirtualDog extends VirtualPet {
 	VirtualDog(String name, int maxEnergy, int energy) {
 		super(name, maxEnergy, energy);
 	}
-	void walk() {
+	void move() {
 		if(this.energy < 10) {
 			System.out.println(this.name + "：疲れちゃって、これ以上歩けないよ。");
 		} else {
@@ -46,7 +47,7 @@ class VirtualBird extends VirtualPet {
 	VirtualBird(String name, int maxEnergy, int energy) {
 		super(name, maxEnergy, energy);
 	}
-	void fly() {
+	void move() {
 		if(this.energy < 10) {
 			System.out.println(this.name + "：疲れちゃって、これ以上飛べないよ。");
 		} else {
@@ -57,17 +58,16 @@ class VirtualBird extends VirtualPet {
 	}
 }
 public class VirtualPetGame {
+	public static void moveAndSleep(VirtualPet pet) {
+		pet.move();
+		pet.sleep();
+	}
 	public static void main(String[] args) {
        VirtualDog taro = new VirtualDog("タロ", 100, 50);
        VirtualBird piyo = new VirtualBird("ピヨ", 80, 40);
 
-       taro.walk();
-       piyo.sleep();
-       taro.walk();
-       taro.sleep();
-       piyo.fly();
-
-       taro.printinfo();
-       piyo.printinfo();
+       moveAndSleep(taro);
+       moveAndSleep(piyo);
+     
 }
 }
