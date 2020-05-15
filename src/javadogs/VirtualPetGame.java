@@ -1,6 +1,6 @@
 package javadogs;
 
-class VirtualPet {
+abstract class VirtualPet {
   String name;
   int maxEnergy;
   int energy;
@@ -25,7 +25,7 @@ void printinfo() {
 	 System.out.println("最大体力：" + this.maxEnergy);
 	 System.out.println("体力：" + this.energy);
 }
-void move() {}
+abstract void move(); {}
 }
 
 class VirtualDog extends VirtualPet {
@@ -68,6 +68,6 @@ public class VirtualPetGame {
 
        moveAndSleep(taro);
        moveAndSleep(piyo);
-     
+
 }
 }
