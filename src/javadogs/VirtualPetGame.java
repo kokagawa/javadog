@@ -71,3 +71,8 @@ public class VirtualPetGame {
 
 }
 }
+
+interface Climbable {
+	void climb();
+}
+
